@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="OKW_Schema" id="Project-1c1c" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="OKW_Schema" >
+		<table name="5. agent" prior="entity_0" >
+			<column name="5.1 name" type="VARCHAR" length="30" jt="12" >
+				<comment><![CDATA[The name of the Agent. Note: This could be a name of a person or an organisation.]]></comment>
+			</column>
+			<column name="5.2 location" type="VARCHAR" length="30" jt="12" >
+				<comment><![CDATA[A Location. Uses the Location class.]]></comment>
+			</column>
+			<column name="5.3 contact_person" type="VARCHAR" length="30" jt="12" >
+				<comment><![CDATA[An Agent who is the key point of contact for a manufacturing facility or organisation. Provide the name of the Agent.]]></comment>
+			</column>
+			<column name="5.4 bio" type="TEXT" jt="-1" >
+				<comment><![CDATA[A description of a person or an organisation. Free text.]]></comment>
+			</column>
+			<column name="5.5 website" prior="contact" type="TEXT" length="20" jt="-1" >
+				<comment><![CDATA[Website address. Provide the relevant URL.]]></comment>
+			</column>
+			<column name="5.6 languages" type="TEXT" jt="-1" >
+				<comment><![CDATA[Languages used by a person or an organisation. Format: ISO 639-2 or ISO 639-3, for example “en-gb”. Often manufacturing facilities may be able to provide services dealing in more than one language.]]></comment>
+			</column>
+			<column name="5.7 mailing_list" type="TEXT" jt="-1" >
+				<comment><![CDATA[Images / Media of a person, an organisation, or relating to the manufacturing facility.]]></comment>
+			</column>
+			<column name="5.8 images_media" type="TEXT" jt="-1" >
+				<comment><![CDATA[Mailing list for an organisation.]]></comment>
+			</column>
+			<column name="5.9 contact_subproperties" type="SUBTYPE" length="20" jt="4999544" >
+				<comment><![CDATA[Defined contact information.]]></comment>
+				<column name="5.9.1 landline" type="NUMERIC" length="20" jt="2" >
+					<comment><![CDATA[A landline telephone number to contact the facility, person or organisation. Provide the telephone number.]]></comment>
+				</column>
+				<column name="5.9.2 mobile" type="NUMERIC" length="20" jt="2" >
+					<comment><![CDATA[A mobile telephone number to contact the facility, person or organisation. Provide the telephone number.]]></comment>
+				</column>
+				<column name="5.9.3 fax" type="NUMERIC" length="20" jt="2" >
+					<comment><![CDATA[A fax number to contact the facility, person or organisation. Provide the fax number.]]></comment>
+				</column>
+				<column name="5.9.4 email" type="VARCHAR" length="20" jt="12" >
+					<comment><![CDATA[...]]></comment>
+				</column>
+				<column name="5.9.5 whatsapp" type="NUMERIC" length="20" jt="2" >
+					<comment><![CDATA[...]]></comment>
+				</column>
+			</column>
+			<column name="5.10 social_media_subproperties" type="SUBTYPE" jt="4999544" >
+				<column name="5.10.1 facebook" type="VARCHAR" length="20" jt="12" >
+					<comment><![CDATA[...]]></comment>
+				</column>
+				<column name="5.10.2 twitter" type="VARCHAR" length="20" jt="12" >
+					<comment><![CDATA[...]]></comment>
+				</column>
+				<column name="5.10.3 instagram" type="VARCHAR" length="20" jt="12" >
+					<comment><![CDATA[...]]></comment>
+				</column>
+				<column name="5.10.4 other_urls" type="VARCHAR" length="20" jt="12" >
+					<comment><![CDATA[...]]></comment>
+				</column>
+			</column>
+		</table>
+		<table name="7. equipment" prior="entity_0" >
+			<column name="7.1 equipment_type" type="TEXT" jt="-1" >
+				<comment><![CDATA[Provide the Wikipedia URL for the relevant Equipment Type.]]></comment>
+			</column>
+			<column name="7.2 manufacturing_process" type="TEXT" jt="-1" >
+				<comment><![CDATA[Manufacturing process the Equipment is capable of.]]></comment>
+			</column>
+			<column name="7.3 make" type="TEXT" jt="-1" >
+				<comment><![CDATA[Make of the piece of equipment. Provide the make of the model. Provides detailed information about a piece of equipment/tool. For example, you can design generically for a 3D printer, or you can design for a specific make or model of 3D printer.]]></comment>
+			</column>
+			<column name="7.4 model" type="TEXT" jt="-1" >
+				<comment><![CDATA[Provide the name of the model.]]></comment>
+			</column>
+			<column name="7.5 serial_number" type="TEXT" jt="-1" >
+				<comment><![CDATA[Serial number of the piece of Equipment.]]></comment>
+			</column>
+			<column name="7.6 location" type="VARCHAR" length="30" jt="12" />
+			<column name="7.7 skills_required" type="TEXT" jt="-1" />
+			<column name="7.8 condition" type="TEXT" jt="-1" >
+				<comment><![CDATA[This provides a user with information surrounding the quality of a piece of equipment/tool, and whether it can complete the task they need it for.]]></comment>
+			</column>
+			<column name="7.9 notes" type="TEXT" length="600" jt="-1" />
+			<column name="7.10 owner" type="TEXT" jt="-1" >
+				<comment><![CDATA[The owner of a piece of equipment.]]></comment>
+			</column>
+			<column name="7.11 quantity" type="INT" jt="4" >
+				<comment><![CDATA[Quantity of specific piece of equipment. This provides information surrounding the size and scale of a manufacturing facility and implicates batch size.]]></comment>
+			</column>
+			<column name="7.12 throughput" type="TEXT" jt="-1" >
+				<comment><![CDATA[ The throughput of the piece of equipment. ]]></comment>
+			</column>
+			<column name="7.13 power_rating" type="INT" jt="4" >
+				<comment><![CDATA[ The power rating of the piece of equipment. Unit: "W" (Watts?)]]></comment>
+			</column>
+			<column name="7.14 materials_worked" type="SUBTYPE" jt="4999544" />
+			<column name="7.15 maintenance_schedule" type="TEXT" jt="-1" >
+				<comment><![CDATA[When the equipment was last maintained.]]></comment>
+			</column>
+			<column name="7.16 usage_levels" type="TEXT" jt="-1" />
+			<column name="7.17 tolerance class" type="SUBTYPE" jt="4999544" />
+			<column name="current_firmware" type="TEXT" jt="-1" />
+			<column name="uninterrupted_power_supply" type="BOOLEAN" jt="-7" />
+			<fk name="fk_equipment_agent" virtual="y" to_schema="OKW_Schema.INSTANCE" to_table="agent" type="OneToOne" >
+				<fk_column name="owner" pk="name" />
+			</fk>
+			<fk name="fk_equipment_location" virtual="y" to_schema="OKW_Schema.INSTANCE" to_table="location" type="OneToOne" >
+				<fk_column name="location" pk="address" />
+			</fk>
+		</table>
+		<table name="facility" prior="entity_0" >
+			<column name="4.1. name" type="VARCHAR" length="30" jt="12" />
+			<column name="4.2 location" type="VARCHAR" length="30" jt="12" />
+			<column name="4.3 owner" type="VARCHAR" length="20" jt="12" />
+			<column name="4.4 contact" type="VARCHAR" length="20" jt="12" />
+			<column name="4.5 affiliation" type="VARCHAR" length="20" jt="12" />
+			<column name="4.6 facility_status" type="VARCHAR" length="20" jt="12" />
+			<column name="4.7 opening_hours" type="DATETIME" jt="93" />
+			<column name="4.8 description" type="TEXT" jt="-1" />
+			<column name="4.9 data_founded" type="DATE" jt="91" />
+			<column name="4.10 access_type" type="TEXT" jt="-1" />
+			<column name="4.11 wheelchair_accessibility" type="TEXT" length="20" jt="-1" />
+			<column name="4.12 equipment" type="TEXT" jt="-1" />
+			<column name="4.13 manufacturing_process" type="TEXT" jt="-1" />
+			<column name="4.14 typical_batch_size" type="TEXT" jt="-1" />
+			<column name="4.15 size_floor_size" type="TEXT" jt="-1" />
+			<column name="4.16 storage_capacity" type="TEXT" jt="-1" />
+			<column name="4.17 typical_materials" type="TEXT" jt="-1" />
+			<column name="4.18 certifications" type="TEXT" jt="-1" />
+			<column name="4.19 backup_generator" type="BOOLEAN" jt="-7" />
+			<column name="4.20 uninterrupted_power_supply" type="BOOLEAN" jt="-7" />
+			<column name="4.21 road_access" type="BOOLEAN" jt="-7" />
+			<column name="4.22 loading_dock" type="BOOLEAN" jt="-7" />
+			<column name="4.23 maintenance_schedule" type="TEXT" jt="-1" />
+			<column name="4.24 typical_products" type="TEXT" jt="-1" />
+			<column name="4.25 partner_funder" type="VARCHAR" length="20" jt="12" />
+			<column name="4.26 customer_reviews" type="TEXT" jt="-1" />
+			<fk name="fk_facility_agent" virtual="y" to_schema="OKW_Schema.INSTANCE" to_table="agent" type="OneToOne" >
+				<fk_column name="owner" pk="name" />
+			</fk>
+			<fk name="fk_facility_location" virtual="y" to_schema="OKW_Schema.INSTANCE" to_table="location" type="OneToOne" >
+				<fk_column name="location" pk="address" />
+			</fk>
+			<fk name="fk_facility_equipment" virtual="y" to_schema="OKW_Schema.INSTANCE" to_table="equipment" type="ManyToMany" >
+				<fk_column name="equipment" pk="serial_number" />
+			</fk>
+		</table>
+		<table name="location" prior="facility" >
+			<column name="address" type="SUBTYPE" length="100" jt="4999544" >
+				<column name="number" type="SUBTYPE" jt="4999544" />
+				<column name="street" type="SUBTYPE" jt="4999544" />
+				<column name="district" type="SUBTYPE" jt="4999544" />
+				<column name="city" type="SUBTYPE" jt="4999544" />
+				<column name="region" type="SUBTYPE" jt="4999544" />
+				<column name="country" type="CHAR" length="2" jt="1" />
+				<column name="postcode" type="VARCHAR" length="10" jt="12" />
+			</column>
+			<column name="gps_coordinates" type="SUBTYPE" jt="4999544" >
+				<column name="latitude" type="DECIMAL" jt="3" />
+				<column name="longitude" type="DECIMAL" jt="3" />
+				<column name="altitude" type="DECIMAL" jt="3" />
+				<column name="precision" type="DECIMAL" jt="3" />
+			</column>
+			<column name="what_3_words" type="SUBTYPE" jt="4999544" >
+				<column name="3_words" prior="location" type="VARCHAR" length="20" jt="12" />
+				<column name="language" type="VARCHAR" length="6" jt="12" />
+			</column>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-2187" show_relation="columns" >
+		<entity schema="OKW_Schema.INSTANCE" name="location" column="address" color="C7F4BE" x="48" y="80" />
+		<entity schema="OKW_Schema.INSTANCE" name="5. agent" color="F4DDBE" x="784" y="96" />
+		<entity schema="OKW_Schema.INSTANCE" name="5. agent" column="contact_subproperties" color="F4DDBE" x="1072" y="80" />
+		<entity schema="OKW_Schema.INSTANCE" name="equipment" color="C1D8EE" x="576" y="560" />
+		<entity schema="OKW_Schema.INSTANCE" name="facility" color="BED3F4" x="1520" y="80" />
+		<entity schema="OKW_Schema.INSTANCE" name="location" column="gps_coordinates" color="C7F4BE" x="480" y="80" />
+		<entity schema="OKW_Schema.INSTANCE" name="location" color="C7F4BE" x="240" y="80" />
+		<entity schema="OKW_Schema.INSTANCE" name="5. agent" column="social_media_subproperties" color="F4DDBE" x="1072" y="384" />
+		<entity schema="OKW_Schema.INSTANCE" name="location" column="what_3_words" color="C7F4BE" x="240" y="272" />
+		<group name="facility" color="ECF0F7" >
+			<entity schema="OKW_Schema.INSTANCE" name="facility" />
+		</group>
+		<group name="5.0 agent" color="F7F2EC" >
+			<entity schema="OKW_Schema.INSTANCE" name="5. agent" column="contact_subproperties" />
+			<entity schema="OKW_Schema.INSTANCE" name="5. agent" column="social_media_subproperties" />
+			<entity schema="OKW_Schema.INSTANCE" name="5. agent" />
+		</group>
+		<group name="6.0 location" color="EEF7EC" >
+			<entity schema="OKW_Schema.INSTANCE" name="location" column="address" />
+			<entity schema="OKW_Schema.INSTANCE" name="location" />
+			<entity schema="OKW_Schema.INSTANCE" name="location" column="gps_coordinates" />
+			<entity schema="OKW_Schema.INSTANCE" name="location" column="what_3_words" />
+		</group>
+	</layout>
+</project>
